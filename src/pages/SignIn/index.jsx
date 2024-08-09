@@ -13,10 +13,12 @@ import { Input } from '../../Components/Input';
 export function SignIn(){
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [Loading, setLoading] = useState(false);
  
   const { signIn } = useAuth();
   
   function HandleSignIn(){
+     setLoading(true)
      signIn({email, password});
   }
 
@@ -45,7 +47,11 @@ return(
           onChange={e => setPassword(e.target.value)}
         />
 
-   <Button title="Entrar" onClick={ HandleSignIn }></Button>
+   <Button 
+    title="Entrar" 
+    onClick={ HandleSignIn }
+    loading={Loading}
+    ></Button>
 
   <Link to="/register">
     <ButtonText 
@@ -54,9 +60,9 @@ return(
     />
   </Link>
 
-    </Main>
+   </Main>
 
-    <Background/>
+   <Background/>
  </Container>
 
 

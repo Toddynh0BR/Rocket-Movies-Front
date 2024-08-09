@@ -13,6 +13,13 @@ export const Box = styled.div`
  width: 113.7rem;
  margin: auto;
  margin-top: 5rem;
+
+ @media (max-width: 430px){
+  width: 35rem;
+  margin: 0;
+  margin-top: 5rem;
+  margin-left: 2rem;
+ }
 `
 
 export const Main = styled.main`
@@ -41,6 +48,13 @@ export const Main = styled.main`
 &::-webkit-scrollbar-thumb:hover {
  background-color: #FF6883;
 }
+
+@media (max-width: 430px){
+ height: 100%;
+ width: 100%;
+
+ margin-bottom: 5rem;
+}
 `
 
 export const Functions = styled.div`
@@ -49,6 +63,9 @@ flex-direction: column;
 align-items: flex-start;
 width: 36.8rem;
 
+@media (max-width: 430px){
+ width: 100%;
+}
 `
 
 export const Titles = styled.div`
@@ -67,6 +84,16 @@ h2 {
 > div {
  width: 20rem;
  height: 2.5rem;
+}
+
+@media (max-width: 430px){
+ flex-direction: column;
+ align-items: flex-start;
+ padding-left: 1rem;
+
+ h2 {
+ padding-left: 1rem;
+ }
 }
 `
 
@@ -99,6 +126,10 @@ margin-top: 3rem;
 display: flex;
 align-items: center;
 gap: 1rem;
+
+@media (max-width: 430px){
+ margin-left: 2rem;
+}
 `
 
 export const Tags = styled.div`
@@ -110,6 +141,11 @@ flex-wrap: wrap;
 gap: 1rem;
 
 width: 40rem;
+
+@media (max-width: 430px){
+ width: 34rem;
+ padding: 0rem 2rem 0rem 2rem;
+}
 `
 
 export const Texts = styled.div`
@@ -119,5 +155,10 @@ margin-top: 5rem;
 font-size: 1.6rem;
 font-weight: normal;
 color: #F4EDE8;
+}
+
+@media (max-width: 430px){
+ width: 100%;
+ padding: 0rem 2rem 0rem 2rem;
 }
 `

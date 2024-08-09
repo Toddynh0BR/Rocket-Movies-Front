@@ -15,21 +15,24 @@ const navigate = useNavigate();
 const [name, setName] = useState("");
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
+const [Loading, setLoading] = useState(false);
 
  async function handleSignUp(){
   if(!name || !email || !password){
     return alert("Preencha todos os campos!")
   }
   
+  setLoading(true)
   await api.post("/users/", {name, email, password})
   .then(()=> {
       alert("Usuário cadastrado com sucesso!")
-      navigate("/RocketMovies-Front/");
+      navigate("/");
        })
   .catch(error => {
     if(error.response){
       alert(error.response.data.message);
     }else {
+      setLoading(false)
       alert("Não foi possivel cadastrar o usuário.")
     }
   })
@@ -68,9 +71,13 @@ return(
           onChange={e => setPassword(e.target.value)}
         />
 
-    <Button title="Cadastrar" onClick={handleSignUp}></Button>
+    <Button 
+     title="Cadastrar" 
+     onClick={handleSignUp}
+     loading={Loading}
+     ></Button>
 
-  <Link to="/RocketMovies-Front/">  
+  <Link to="/">  
     <ButtonText 
     icon={FiArrowLeft}
     title="Voltar para o login"

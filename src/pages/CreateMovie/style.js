@@ -9,6 +9,12 @@ export const Box = styled.div`
  width: 113.7rem;
  margin: auto;
  margin-top: 5rem;
+
+ @media (max-width: 430px){
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1rem;
+ }
 `
 
 export const Main = styled.main`
@@ -49,7 +55,20 @@ color: #F4EDE8;
  
 }
 
+@media (max-width: 430px){
+ width: 100%;
+ height: 100%;
+
+ padding-right: 0;
+ padding: 1rem;
+ gap: 2rem;
+}
+
+&[data-menu-open="true"]{
+ display: none;
+}
 `
+
 
 export const FistInputs = styled.div`
 display: flex;
@@ -60,6 +79,11 @@ width: 100%;
 #InputNumber {
  color: red;
  background-color: red;
+}
+
+@media (max-width: 430px){
+ flex-direction: column;
+ gap: 2rem;
 }
 `
 

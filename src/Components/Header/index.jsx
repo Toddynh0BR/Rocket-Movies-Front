@@ -1,4 +1,4 @@
-import { Container, Profile, Search } from "./style";
+import { Container, Profile, Search, MobalMenu } from "./style";
 import { useState, useEffect } from "react";
 
 import { useAuth } from "../../hooks/auth";
@@ -11,7 +11,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { Input } from "../../Components/Input";
 
-export function Header() {
+export function Header({onclick}) {
   const { Logout } = useAuth();
   const navigate = useNavigate();
 
@@ -43,8 +43,9 @@ export function Header() {
     }
   }
 
+
   return (
-    <Container>
+    <Container >
       <h2>RocketMovies</h2>
       <Search>
         <Input
@@ -67,6 +68,16 @@ export function Header() {
           <img src={avatar} alt="imagem do usuário" />
         </Link>
       </Profile>
+
+      <MobalMenu>
+       <label for="check">
+        <input type="checkbox" id="check" onChange={onclick}/> 
+        <span></span>
+        <span></span>
+        <span></span>
+       </label>
+      </MobalMenu>
+
     </Container>
   );
 }

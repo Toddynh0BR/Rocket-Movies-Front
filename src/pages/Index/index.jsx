@@ -9,12 +9,14 @@ import { FiArrowLeft } from 'react-icons/fi';
 import { Header } from "../../Components/Header";
 import { Button } from "../../Components/Button";
 import { Stars } from "../../Components/Stars";
+import { Menu } from "../../Components/Menu";
 import { Tag } from "../../Components/Tags";
 
 export function Index() {
+  const { index } = useParams();
   const navigate = useNavigate();
   const [movies, setMovies] = useState([]);
-  const { index } = useParams();
+  const [MenuOpen, setMenuOpen] = useState(false);
 
   async function fetchMovies() {
     if (!index) {
@@ -46,9 +48,19 @@ export function Index() {
    navigate(-1)
   }
 
+  function toggleMenu(){
+    setMenuOpen(prevMenuOpen => !prevMenuOpen)
+  }
+
   return (
-    <Container>
-      <Header />
+    <Container data-menu-open={MenuOpen}>
+      <Menu
+      open={MenuOpen}
+      />
+
+      <Header 
+      onclick={toggleMenu}
+      />
       <Title>
         <h2>Resultados para: {index}</h2>
        
@@ -59,7 +71,7 @@ export function Index() {
            />
        
       </Title>
-      <Main data-have-movies={!!movies.length}>
+      <Main data-have-movies={!!movies.length} data-menu-open={MenuOpen}>
         {movies.length === 0 ? (
           <h2>Nenhum filme encontrado</h2>
         ) : (

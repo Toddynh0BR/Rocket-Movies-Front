@@ -7,6 +7,10 @@ export const Container = styled.div`
   display: flex;
   align-items: stretch;
 
+  @media (max-width: 430px){
+   align-items: center;
+  }
+
 `
 
 export const Main = styled.div`
@@ -50,14 +54,20 @@ margin-bottom: 5rem;
 a {
  text-decoration: none;
 }
-`
 
-export const Form = styled.form`
-
+  @media (max-width: 430px){
+  width: 34rem;
+  margin: auto;
+  padding: 1rem;
+  }
 `
 
 export const Background  = styled.div`
   flex: 1;
   background: url(${backgroundImg}) no-repeat center center;
   background-size: cover;
+
+  @media (max-width: 430px){
+  display: none;
+  }
 `

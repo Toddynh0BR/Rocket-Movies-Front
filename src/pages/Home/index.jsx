@@ -1,15 +1,19 @@
 import { Container, Main, Title, Movie } from "./style";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { api } from "../../services/api";
+import { Link } from "react-router-dom";
+
 import { FiPlus } from 'react-icons/fi';
+
 import { Header } from "../../Components/Header";
 import { Button } from "../../Components/Button";
 import { Stars } from "../../Components/Stars";
+import { Menu } from "../../Components/Menu";
 import { Tag } from "../../Components/Tags";
 
 export function Home() {
   const [movies, setMovies] = useState([]);
+  const [MenuOpen, setMenuOpen] = useState(false);
 
   async function fetchMovies() {
     try {
@@ -31,16 +35,28 @@ export function Home() {
     fetchMovies();
   }, []); 
 
+  function toggleMenu(){
+    setMenuOpen(prevMenuOpen => !prevMenuOpen)
+  }
+
   return (
-    <Container>
-      <Header />
+    <Container data-menu-open={MenuOpen}>
+      <Menu
+      open={MenuOpen}
+      />
+
+      <Header 
+      onclick={toggleMenu}
+      />
+      
       <Title>
         <h2>Meus filmes</h2>
         <Link to="/create">
           <Button icon={FiPlus} title="Adicionar filme" />
         </Link>
       </Title>
-      <Main data-have-movies={!!movies.length}>
+
+      <Main data-have-movies={!!movies.length} data-menu-open={MenuOpen}>
         {Array.isArray(movies) && movies.length === 0 ? (
           <h2>Nenhum filme adicionado ainda</h2>
         ) : (

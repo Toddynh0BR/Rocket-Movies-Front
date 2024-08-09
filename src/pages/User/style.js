@@ -21,6 +21,17 @@ justify-content: space-between;
 align-items: flex-start;
 padding-left: 15rem;
 
+@media (max-width: 430px){
+  padding-left: 1rem;
+
+  :first-child{
+:first-child {
+ margin-top: 0;
+}
+  margin-top: 3rem;
+}
+
+}
 `
 
 export const Avatar = styled.div`

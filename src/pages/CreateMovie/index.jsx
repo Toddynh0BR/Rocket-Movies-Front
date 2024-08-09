@@ -11,6 +11,7 @@ import { ButtonText } from "../../Components/ButtonText";
 import { Button } from "../../Components/Button";
 import { Header } from "../../Components/Header";
 import { Input } from "../../Components/Input";
+import { Menu } from "../../Components/Menu";
 
 export function CreateMovie() {
   const navigate = useNavigate();
@@ -19,6 +20,7 @@ export function CreateMovie() {
   const [rating, setRating] = useState('');
   const [newTag, setNewTag] = useState('');
   const [description, setDescription] = useState('');
+  const [MenuOpen, setMenuOpen] = useState(false);
 
   function handleTags() {
     if (newTag.trim() !== "") {
@@ -74,9 +76,19 @@ export function CreateMovie() {
    navigate(-1)
   }
 
+  function toggleMenu(){
+    setMenuOpen(prevMenuOpen => !prevMenuOpen)
+  }
+
   return (
-    <Container>
-      <Header />
+    <Container >
+      <Menu
+      open={MenuOpen}
+      />
+
+      <Header 
+      onclick={toggleMenu}
+      />
 
       <Box>
         
@@ -88,7 +100,7 @@ export function CreateMovie() {
     
       </Box>
 
-      <Main>
+      <Main data-menu-open={MenuOpen}>
         <h2>Novo filme</h2>
 
         <FistInputs>

@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-
+&[data-menu-open="true"]{
+ max-height: 100vh;
+}
 `
 
 export const Title = styled.div`
@@ -30,6 +32,14 @@ button {
  font-size: 2rem;
  color: #000000;
  }
+}
+
+@media (max-width: 430px){
+  width: 34rem;
+
+ button {
+ display: none;
+}
 }
 `
 
@@ -77,6 +87,18 @@ h2 {
 &::-webkit-scrollbar-thumb:hover {
  background-color: #FF6883;
  
+}
+
+@media (max-width: 430px){
+  height: 100%;
+  width: 100%;
+  padding: 0rem 2rem 0rem 2rem;
+ 
+  margin-bottom: 5rem;
+}
+
+&[data-menu-open="true"]{
+ display: none;
 }
 `
 
@@ -133,6 +155,7 @@ filter: brightness(80%);
  -webkit-line-clamp: 2;
  text-overflow: ellipsis;
  }
+ 
 
 
 }
@@ -151,5 +174,17 @@ filter: brightness(80%);
  height: 2.4rem;
 
  overflow: hidden;
+ }
+
+ @media (max-width: 430px){
+  height: 18rem;
+ 
+  .p {
+   width: 28rem;
+  }
+
+  .tags {
+  display: none;
+  }
  }
 `
