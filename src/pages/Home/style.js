@@ -182,7 +182,10 @@ filter: brightness(80%);
   .p {
    width: 28rem;
   }
-
+  
+  .description{
+   width: 28rem;
+  }
   .tags {
   display: none;
   }
